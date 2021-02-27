@@ -1,5 +1,7 @@
 # Rocketpay
 
+To run this project, you'll nedd to have a postgres database, if you have docker just run: `docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres`
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
