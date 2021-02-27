@@ -1,0 +1,30 @@
+alias Rocketpay.User
+alias Rocketpay.Repo
+alias Rocketpay.Account
+
+params = %{name: "Gabi", password: "123456", email: "gabi@gmail.com", nickname: "gabi", age: 19}
+
+User.changeset(params)
+
+changetset = params |> User.changeset()
+
+Rocketpay.Repo.insert(changeset)
+
+
+// ou
+
+params |> User.changeset() |> Repo.insert()
+
+params |> Rocketpay.create_user()
+
+Repo.all(User)
+
+%{user_id: "b1c92a11-27ac-4de2-bcff-91b7486c5520", balance: "0.00"}
+
+Repo.all(User) |> Repo.preload(:account)
+
+
+Rocketpay.deposit(%{"id" => "ef3985df-afbf-4459-82cb-2965c45a768c", "value" => "85.26"})
+
+Rocketpay.Accounts.Transaction.call(%{"from" => "ef3985df-afbf-4459-82cb-2965c45a768c", "to" => "5216ac1c-3008-41d6-83e4-5503292fba97", "value" => "1.00"})
+

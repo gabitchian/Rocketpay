@@ -18,6 +18,12 @@ defmodule RocketpayWeb.ErrorView do
     %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
   end
 
+  def render("400.json", %{result: message}) do
+    %{
+      message: message
+    }
+  end
+
   def render("400.json", %{result: %Changeset{} = changeset}) do
     %{
       message: translate_errors(changeset)
